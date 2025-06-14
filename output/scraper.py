@@ -6,7 +6,7 @@ import re
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 metadata_dir = os.path.join(base_dir, 'data', 'metadata')
-pdf_dir = os.path.join(base_dir, 'data', 'pdfs')
+pdf_dir = os.path.join(base_dir, 'data', 'pdf')
 os.makedirs(metadata_dir, exist_ok=True)
 os.makedirs(pdf_dir, exist_ok=True)
 
@@ -78,7 +78,7 @@ def save_metadata_and_pdf(entry):
     print("/n")
 
 
-def main(query):
+def Scrapping(query):
 
     root = search_arxiv(query, sortBY='relevance')
 
@@ -100,23 +100,13 @@ def main(query):
         print(
             f"{idx}. {title}\n   Authors: {', '.join(authors)}\n   Published: {published}\n")
 
-    paper_choices = input(
-        "Enter the number(s) of the paper(s) you want to download (e.g., 1 3 5), or 'q' to quit: ").strip()
-
-    if paper_choices.lower() == 'q':
-        print("Exiting...")
-        return
-
-    try:
-        indices = [int(i) - 1 for i in paper_choices.split()]
-        for i in indices:
-            if 0 <= i < len(entries):
-                save_metadata_and_pdf(entries[i])
-            else:
-                print(f"Invalid paper number: {i+1}")
-    except ValueError:
-        print("Invalid input. Please enter valid numbers or 'q'.")
+    # Automatically download all PDFs
+    for i, entry in enumerate(entries):
+        try:
+            save_metadata_and_pdf(entry)
+        except Exception as e:
+            print(f"Failed to download paper {i+1}: {e}")
 
 
 if __name__ == "__main__":
-    main()
+    Scrappping()
