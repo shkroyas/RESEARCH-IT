@@ -1,3 +1,5 @@
-from django.test import TestCase
+# from django.test import TestCase
+# import shutil
 
-# Create your tests here.
+# # Create your tests here.
+# shutil.rmtree("data")

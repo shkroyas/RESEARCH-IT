@@ -1,0 +1,20 @@
+{
+    "arxiv_id": "2304.03556v1",
+    "title": "Construction of unbiased dental template and parametric dental model for\n  precision digital dentistry",
+    "authors": [
+        "Lei Ma",
+        "Jingyang Zhang",
+        "Ke Deng",
+        "Peng Xue",
+        "Zhiming Cui",
+        "Yu Fang",
+        "Minhui Tang",
+        "Yue Zhao",
+        "Min Zhu",
+        "Zhongxiang Ding",
+        "Dinggang Shen"
+    ],
+    "published": "2023-04-07T09:39:03Z",
+    "summary": "  Dental template and parametric dental models are important tools for various\napplications in digital dentistry. However, constructing an unbiased dental\ntemplate and accurate parametric dental models remains a challenging task due\nto the complex anatomical and morphological dental structures and also low\nvolume ratio of the teeth. In this study, we develop an unbiased dental\ntemplate by constructing an accurate dental atlas from CBCT images with\nguidance of teeth segmentation. First, to address the challenges, we propose to\nenhance the CBCT images and their segmentation images, including image\ncropping, image masking and segmentation intensity reassigning. Then, we\nfurther use the segmentation images to perform co-registration with the CBCT\nimages to generate an accurate dental atlas, from which an unbiased dental\ntemplate can be generated. By leveraging the unbiased dental template, we\nconstruct parametric dental models by estimating point-to-point correspondences\nbetween the dental models and employing Principal Component Analysis to\ndetermine shape subspaces of the parametric dental models. A total of 159 CBCT\nimages of real subjects are collected to perform the constructions.\nExperimental results demonstrate effectiveness of our proposed method in\nconstructing unbiased dental template and parametric dental model. The\ndeveloped dental template and parametric dental models are available at\nhttps://github.com/Marvin0724/Teeth_template.\n",
+    "pdf_url": "http://arxiv.org/pdf/2304.03556v1.pdf"
+}

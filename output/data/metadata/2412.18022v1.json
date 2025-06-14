@@ -1,0 +1,11 @@
+{
+    "arxiv_id": "2412.18022v1",
+    "title": "Trustworthy and Efficient LLMs Meet Databases",
+    "authors": [
+        "Kyoungmin Kim",
+        "Anastasia Ailamaki"
+    ],
+    "published": "2024-12-23T22:34:40Z",
+    "summary": "  In the rapidly evolving AI era with large language models (LLMs) at the core,\nmaking LLMs more trustworthy and efficient, especially in output generation\n(inference), has gained significant attention. This is to reduce plausible but\nfaulty LLM outputs (a.k.a hallucinations) and meet the highly increased\ninference demands. This tutorial explores such efforts and makes them\ntransparent to the database community. Understanding these efforts is essential\nin harnessing LLMs in database tasks and adapting database techniques to LLMs.\nFurthermore, we delve into the synergy between LLMs and databases, highlighting\nnew opportunities and challenges in their intersection. This tutorial aims to\nshare with database researchers and practitioners essential concepts and\nstrategies around LLMs, reduce the unfamiliarity of LLMs, and inspire joining\nin the intersection between LLMs and databases.\n",
+    "pdf_url": "http://arxiv.org/pdf/2412.18022v1.pdf"
+}

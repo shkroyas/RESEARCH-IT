@@ -1,0 +1,17 @@
+{
+    "arxiv_id": "2402.01933v1",
+    "title": "ToMoBrush: Exploring Dental Health Sensing using a Sonic Toothbrush",
+    "authors": [
+        "Kuang Yuan",
+        "Mohamed Ibrahim",
+        "Yiwen Song",
+        "Guoxiang Deng",
+        "Suvendra Vijayan",
+        "Robert Nerone",
+        "Akshay Gadre",
+        "Swarun Kumar"
+    ],
+    "published": "2024-02-02T22:05:57Z",
+    "summary": "  Early detection of dental disease is crucial to prevent adverse outcomes.\nToday, dental X-rays are currently the most accurate gold standard for dental\ndisease detection. Unfortunately, regular X-ray exam is still a privilege for\nbillions of people around the world. In this paper, we ask: \"Can we develop a\nlow-cost sensing system that enables dental self-examination in the comfort of\none's home?\"\n  This paper presents ToMoBrush, a dental health sensing system that explores\nusing off-the-shelf sonic toothbrushes for dental condition detection. Our\nsolution leverages the fact that a sonic toothbrush produces rich acoustic\nsignals when in contact with teeth, which contain important information about\neach tooth's status. ToMoBrush extracts tooth resonance signatures from the\nacoustic signals to characterize varied dental health conditions of the teeth.\nWe evaluate ToMoBrush on 19 participants and dental-standard models for\ndetecting common dental problems including caries, calculus, and food\nimpaction, achieving a detection ROC-AUC of 0.90, 0.83, and 0.88 respectively.\nInterviews with dental experts validate ToMoBrush's potential in enhancing\nat-home dental healthcare.\n",
+    "pdf_url": "http://arxiv.org/pdf/2402.01933v1.pdf"
+}

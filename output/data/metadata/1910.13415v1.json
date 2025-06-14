@@ -1,0 +1,12 @@
+{
+    "arxiv_id": "1910.13415v1",
+    "title": "Analyzing Hack Subnetworks in the Bitcoin Transaction Graph",
+    "authors": [
+        "Daniel Goldsmith",
+        "Kim Grauer",
+        "Yonah Shmalo"
+    ],
+    "published": "2019-10-29T17:22:23Z",
+    "summary": "  Hacks are one of the most damaging types of cryptocurrency related crime,\naccounting for billions of dollars in stolen funds since 2009. Professional\ninvestigators at Chainalysis have traced these stolen funds from the initial\nbreach on an exchange to off-ramps, i.e. services where criminals are able to\nconvert the stolen funds into fiat or other cryptocurrencies. We analyzed six\nhack subnetworks of bitcoin transactions known to belong to two prominent\nhacking groups. We analyze each hack according to eight network features, both\nstatic and temporal, and successfully classify each hack to its respective\nhacking group through our newly proposed method. We find that the static\nfeatures, such as node balance, in degree, and out degree are not as useful in\nclassifying the hacks into hacking groups as temporal features related to how\nquickly the criminals cash out. We validate our operating hypothesis that the\nkey distinction between the two hacking groups is the acceleration with which\nthe funds exit through terminal nodes in the subnetworks.\n",
+    "pdf_url": "http://arxiv.org/pdf/1910.13415v1.pdf"
+}

@@ -256,21 +256,26 @@ class MultiPDFProcessor:
         return response.text
 
 
-if __name__ == "__main__":
+def main_model():
     # pdf_list = [
     #     "data/pdfs/insides/0712.1443v1.pdf",
     #     "data/pdfs/insides/0808.3541v1.pdf",
     #     "data/pdfs/insides/1006.5209v2.pdf",
     # ]
     # Scrappping()
-    folder_path = '.\data\pdf'
+    folder_path = 'output\data\pdf'
 
     # Get a list of all files in the folder
     file_names = [f for f in os.listdir(
         folder_path) if os.path.isfile(os.path.join(folder_path, f))]
+    files_with_mtime = [(f, os.path.getmtime(
+        os.path.join(folder_path, f))) for f in file_names]
+    files_with_mtime_sorted = sorted(
+        files_with_mtime, key=lambda x: x[1], reverse=True)
+    most_recent_files = [f[0] for f in files_with_mtime_sorted[:2]]
 
     # Print the file names
-    for file in file_names:
+    for file in most_recent_files:
         pdf_list = [
             os.path.join(folder_path, file) if file.endswith('.pdf') else None
         ]
@@ -285,3 +290,7 @@ if __name__ == "__main__":
 
     print("\n=== OVERALL SUMMARY ===\n")
     print(overall_summary)
+
+
+if __name__ == "__main__":
+    main_model()

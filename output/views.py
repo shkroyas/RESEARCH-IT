@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from .scraper import Scrapping
+import shutil
 
 
 @api_view(['GET'])
@@ -15,13 +16,17 @@ def search_query(request):
 
     # Optional: Do something with the query
     Scrapping(query)
-
+    # print(f"Looking for summary file for query:")
     # Define the path to the summary JSON
-    summary_path = os.path.join('output', 'all_pdf_summaries.json')
+    summary_path = "all_pdf_summaries.json"
+    print(f"Looking for summary file at: {summary_path}")
+
     if not os.path.exists(summary_path):
         return Response({"error": "Summary file not found."}, status=404)
 
     with open(summary_path, 'r', encoding='utf-8') as f:
         summary_data = json.load(f)
+
+    # shutil.rmtree(".\output\data")
 
     return Response(summary_data, status=200)

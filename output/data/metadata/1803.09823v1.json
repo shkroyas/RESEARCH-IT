@@ -1,0 +1,11 @@
+{
+    "arxiv_id": "1803.09823v1",
+    "title": "The Impact of the Object-Oriented Software Evolution on Software\n  Metrics: The Iris Approach",
+    "authors": [
+        "Ra'Fat Al-Msie'deen",
+        "Anas H. Blasi"
+    ],
+    "published": "2018-03-15T12:33:34Z",
+    "summary": "  The Object-Oriented (OO) software system evolves over the time to meet the\nnew requirements. Based on the initial release of software, the continuous\nmodification of software code leads to software evolution. Software needs to\nevolve over the time to meet the new user's requirements. Software companies\noften develop variant software of the original one depends on customers' needs.\nThe main hypothesis of this paper states that the software when it evolves over\nthe time, its code continues to grow, change and become more complex. This\npaper proposes an automatic approach (Iris) to examine the proposed hypothesis.\nOriginality of this approach is the exploiting of the software variants to\nstudy the impact of software evolution on the software metrics. This paper\npresents the results of experiments conducted on three releases of drawing\nshapes software, sixteen releases of rhino software, eight releases of mobile\nmedia software and ten releases of ArgoUML software. Based on the extracted\nsoftware metrics, It has been found that Iris hypothesis is supported by the\ncomputed metrics.\n",
+    "pdf_url": "http://arxiv.org/pdf/1803.09823v1.pdf"
+}

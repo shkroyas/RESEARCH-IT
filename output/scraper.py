@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 import os
 import json
 import re
+from .research_model import main_model
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 metadata_dir = os.path.join(base_dir, 'data', 'metadata')
@@ -11,7 +12,7 @@ os.makedirs(metadata_dir, exist_ok=True)
 os.makedirs(pdf_dir, exist_ok=True)
 
 
-def search_arxiv(query, start=0, max_results=5, sortBY='relevance'):
+def search_arxiv(query, start=0, max_results=2, sortBY='relevance'):
 
     arxiv_base_url = "http://export.arxiv.org/api/query?"
     url = f"{arxiv_base_url}search_query={query}&start={start}&max_results={max_results}&sortBy={sortBY}&sortOrder=descending"
@@ -106,7 +107,10 @@ def Scrapping(query):
             save_metadata_and_pdf(entry)
         except Exception as e:
             print(f"Failed to download paper {i+1}: {e}")
+    main_model()
+    print("i am here")
 
 
 if __name__ == "__main__":
-    Scrappping()
+    Scrapping()
+    print("Scraping completed.")
