@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from .scraper import Scrapping
-import shutil
+from .research_model import get_recent_arxiv_metadata
 
 
 @api_view(['GET'])
@@ -28,5 +28,12 @@ def search_query(request):
         summary_data = json.load(f)
 
     # shutil.rmtree(".\output\data")
+    metadata_List = get_recent_arxiv_metadata("output\data\metadata", 3)
 
-    return Response(summary_data, status=200)
+    return Response(
+        {
+            "summary_data": summary_data,
+            "metadata_list": metadata_List
+        },
+        status=200
+    )

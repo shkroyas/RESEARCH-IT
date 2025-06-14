@@ -18,6 +18,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmb
 import google.generativeai as genai
 from IPython.display import Markdown, display
 
+from datetime import datetime
 # Suppress warnings
 logging.getLogger('pypdf').setLevel(logging.ERROR)
 warnings.filterwarnings("ignore")
@@ -30,7 +31,7 @@ def to_markdown(text):
 
 # Configure Gemini API key
 # Replace with your real key
-GOOGLE_API_KEY = "AIzaSyA10ceOZNiCW-lEOYUWD3WARt-6EXjY4BA"
+GOOGLE_API_KEY = "AIzaSyDcO-m2dylp4vBR0-VGBzIUooTFQaK2LdI"
 genai.configure(api_key=GOOGLE_API_KEY)
 
 
@@ -256,6 +257,46 @@ class MultiPDFProcessor:
         return response.text
 
 
+def get_recent_arxiv_metadata(folder_path, num_files=5):
+    metadata_list = []
+
+    # Get all JSON files in the folder with their modification times
+    json_files = [(f, os.path.getmtime(os.path.join(folder_path, f)))
+                  for f in os.listdir(folder_path)
+                  if f.endswith('.json') and os.path.isfile(os.path.join(folder_path, f))]
+
+    # Sort files by modification time (newest first)
+    json_files.sort(key=lambda x: x[1], reverse=True)
+
+    # Process only the most recent files
+    for file, _ in json_files[:num_files]:
+        file_path = os.path.join(folder_path, file)
+
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                metadata = json.load(f)
+
+                # Format the published date for better readability
+                if 'published' in metadata:
+                    try:
+                        published_dt = datetime.strptime(
+                            metadata['published'], "%Y-%m-%dT%H:%M:%SZ")
+                        metadata['published'] = published_dt.strftime(
+                            "%Y-%m-%d %H:%M:%S")
+                    except ValueError:
+                        pass
+
+                # Add filename to the metadata
+                metadata['filename'] = file
+                metadata_list.append(metadata)
+
+        except (json.JSONDecodeError, UnicodeDecodeError) as e:
+            print(f"Error reading {file}: {str(e)}")
+            continue
+
+    return metadata_list
+
+
 def main_model():
     # pdf_list = [
     #     "data/pdfs/insides/0712.1443v1.pdf",
@@ -272,7 +313,7 @@ def main_model():
         os.path.join(folder_path, f))) for f in file_names]
     files_with_mtime_sorted = sorted(
         files_with_mtime, key=lambda x: x[1], reverse=True)
-    most_recent_files = [f[0] for f in files_with_mtime_sorted[:2]]
+    most_recent_files = [f[0] for f in files_with_mtime_sorted[:3]]
 
     # Print the file names
     for file in most_recent_files:

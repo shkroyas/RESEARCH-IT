@@ -12,7 +12,7 @@ os.makedirs(metadata_dir, exist_ok=True)
 os.makedirs(pdf_dir, exist_ok=True)
 
 
-def search_arxiv(query, start=0, max_results=2, sortBY='relevance'):
+def search_arxiv(query, start=0, max_results=3, sortBY='relevance'):
 
     arxiv_base_url = "http://export.arxiv.org/api/query?"
     url = f"{arxiv_base_url}search_query={query}&start={start}&max_results={max_results}&sortBy={sortBY}&sortOrder=descending"
