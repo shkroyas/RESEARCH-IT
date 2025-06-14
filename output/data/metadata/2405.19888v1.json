@@ -1,0 +1,16 @@
+{
+    "arxiv_id": "2405.19888v1",
+    "title": "Parrot: Efficient Serving of LLM-based Applications with Semantic\n  Variable",
+    "authors": [
+        "Chaofan Lin",
+        "Zhenhua Han",
+        "Chengruidong Zhang",
+        "Yuqing Yang",
+        "Fan Yang",
+        "Chen Chen",
+        "Lili Qiu"
+    ],
+    "published": "2024-05-30T09:46:36Z",
+    "summary": "  The rise of large language models (LLMs) has enabled LLM-based applications\n(a.k.a. AI agents or co-pilots), a new software paradigm that combines the\nstrength of LLM and conventional software. Diverse LLM applications from\ndifferent tenants could design complex workflows using multiple LLM requests to\naccomplish one task. However, they have to use the over-simplified\nrequest-level API provided by today's public LLM services, losing essential\napplication-level information. Public LLM services have to blindly optimize\nindividual LLM requests, leading to sub-optimal end-to-end performance of LLM\napplications.\n  This paper introduces Parrot, an LLM service system that focuses on the\nend-to-end experience of LLM-based applications. Parrot proposes Semantic\nVariable, a unified abstraction to expose application-level knowledge to public\nLLM services. A Semantic Variable annotates an input/output variable in the\nprompt of a request, and creates the data pipeline when connecting multiple LLM\nrequests, providing a natural way to program LLM applications. Exposing\nSemantic Variables to the public LLM service allows it to perform conventional\ndata flow analysis to uncover the correlation across multiple LLM requests.\nThis correlation opens a brand-new optimization space for the end-to-end\nperformance of LLM-based applications. Extensive evaluations demonstrate that\nParrot can achieve up to an order-of-magnitude improvement for popular and\npractical use cases of LLM applications.\n",
+    "pdf_url": "http://arxiv.org/pdf/2405.19888v1.pdf"
+}
