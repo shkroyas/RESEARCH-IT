@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import Sidebar from '../../components/Sidebar';
 import image1 from '../../assets/image1.png';
+import { useNavigate } from 'react-router-dom';
 import { FiSearch, FiPaperclip, FiFilter } from 'react-icons/fi';
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -20,7 +22,9 @@ const Home = () => {
     window.addEventListener('resize', checkIfMobile);
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
-
+const handleSearch=()=>{
+    navigate('/signup');
+}
   const toggleSidebar = () => {
     setIsSidebarCollapsed(!isSidebarCollapsed);
   };
@@ -56,14 +60,8 @@ const Home = () => {
                   className="flex-1 w-full px-4 sm:px-6 py-3 md:py-4 outline-none text-base md:text-lg"
                 />
                 <div className="flex items-center w-full sm:w-auto justify-end sm:justify-normal p-2 sm:p-0 sm:pr-4 space-x-2 sm:space-x-3">
-                    <FiPaperclip size={18} className="sm:w-5 sm:h-5" />
-                  <button 
-                    className="p-2 text-gray-500 hover:text-[#D65600] hover:bg-gray-100 rounded-full"
-                    title="Filters"
-                  >
-                    <FiFilter size={18} className="sm:w-5 sm:h-5" />
-                  </button>
-                  <button className="bg-[#D65600] text-white px-4 sm:px-6 py-2 rounded-lg hover:bg-[#E56700] transition-colors text-sm sm:text-base">
+                   
+                  <button onClick={handleSearch} className="bg-[#D65600] text-white px-4 sm:px-6 py-2 rounded-lg hover:bg-[#E56700] transition-colors text-sm sm:text-base">
                     Search
                   </button>
                 </div>
