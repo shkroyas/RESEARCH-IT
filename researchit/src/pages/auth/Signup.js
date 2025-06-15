@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import useAuthTokens from '../Token';
 import Sidebar from '../../components/Sidebar';
+import { FiEye, FiEyeOff } from 'react-icons/fi'; // Import eye icons
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const Signup = () => {
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State for password visibility
   const { accessToken, refreshToken } = useAuthTokens(formData.email, formData.password);
 
   const handleChange = (e) => {
@@ -55,7 +57,7 @@ const Signup = () => {
     <div className="flex h-screen bg-[#FCDFCC]">
       <Sidebar />
       <div className="flex-1 flex items-center justify-center">
-        <div className="max-w-md w-full p-6 bg-white rounded-lg shadow-md">
+        <div className="max-w-md w-full p-6 bg-white rounded-lg shadow-md ml-64">
           <h2 className="text-2xl font-bold text-[#3A3A3A] mb-6 text-center">Create Your Account</h2>
           
           {error && (
@@ -101,21 +103,31 @@ const Signup = () => {
               />
             </div>
 
-            <div className="mb-4">
+            <div className="mb-6 relative">
               <label htmlFor="password" className="block text-gray-700 mb-2">
                 Password
               </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-                minLength="8"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D65600]"
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                  minLength="8"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#D65600] pr-10"
+                />
+                <button
+                  type="button"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-500 hover:text-gray-700"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FiEyeOff size={18} /> : <FiEye size={18} />}
+                </button>
+              </div>
             </div>
+
             <button
               type="submit"
               className="w-full bg-[#D65600] text-white py-2 px-4 rounded-md hover:bg-[#E56700] transition-colors focus:outline-none focus:ring-2 focus:ring-[#D65600] focus:ring-offset-2"

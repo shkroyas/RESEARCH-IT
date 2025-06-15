@@ -56,12 +56,7 @@ const Home = () => {
                   className="flex-1 w-full px-4 sm:px-6 py-3 md:py-4 outline-none text-base md:text-lg"
                 />
                 <div className="flex items-center w-full sm:w-auto justify-end sm:justify-normal p-2 sm:p-0 sm:pr-4 space-x-2 sm:space-x-3">
-                  <button 
-                    className="p-2 text-gray-500 hover:text-[#D65600] hover:bg-gray-100 rounded-full"
-                    title="Upload PDF"
-                  >
                     <FiPaperclip size={18} className="sm:w-5 sm:h-5" />
-                  </button>
                   <button 
                     className="p-2 text-gray-500 hover:text-[#D65600] hover:bg-gray-100 rounded-full"
                     title="Filters"
